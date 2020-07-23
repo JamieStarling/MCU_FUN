@@ -6,8 +6,6 @@
  * 
  * Copyright 2018 - 2019 Jamie Starling
 
-Free for Personal Use.  
-Restricted Commercial Use  : Please Contact Jamie at jamie@jamiestarling.com for Terms.
 
 THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES

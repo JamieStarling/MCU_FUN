@@ -1,5 +1,5 @@
 /*
- * File:  deviceconfig.h
+ * File:  10F322_deviceconfig.h
  * Author: Jamie Starling - JamieStarling.com 
  *
  * Created on:  June 7, 2019, 9:45 PM
@@ -24,6 +24,9 @@ DEALINGS IN THE SOFTWARE.
 #include <xc.h>
 #include <stdint.h>
 
+#ifndef DEVICECONFIG_H
+#define	DEVICECONFIG_H
+
 #pragma config FOSC = INTOSC  // Oscillator Selection 
 #pragma config BOREN = ON    // Brown-out Reset
 #pragma config WDTE = OFF    // Watchdog Timer
@@ -44,8 +47,8 @@ DEALINGS IN THE SOFTWARE.
 #define LOW 0
 
 
-
-
-
 //Used to calculate the delay time - Change depending on processor Speed
 #define _XTAL_FREQ 8000000  //8 MHz (default after Reset)
+
+
+#endif	/* DEVICECONFIG_H */

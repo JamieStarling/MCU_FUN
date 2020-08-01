@@ -39,12 +39,21 @@ DEALINGS IN THE SOFTWARE.
 #pragma config WRT = OFF    // Flash Memory Self-Write Protection
 
 
-#define ON  1
-#define OFF 0
-#define TRUE 1
-#define FALSE 0
-#define HIGH 1
-#define LOW 0
+
+/*Standard Defines*/
+
+/*EQU 0*/
+#define OFF 0x00
+#define FALSE 0x00
+#define LOW 0x00
+#define OUTPUT 0x00
+
+
+/*EQU 1*/
+#define ON  0x01
+#define TRUE 0x01
+#define HIGH 0x01
+#define INPUT 0x01
 
 
 //Used to calculate the delay time - Change depending on processor Speed

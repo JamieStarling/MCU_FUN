@@ -1,0 +1,34 @@
+/*
+ * File:  debounce.h
+ * Author: Jamie Starling - JamieStarling.com 
+ *
+ * Created on:  August 3, 2020
+ * 
+ *
+
+THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+ */
+
+#ifndef DEBOUNCE_H
+#define	DEBOUNCE_H
+
+#include <xc.h>
+#include <stdint.h>
+#include "10F322_deviceconfig.h"
+#include "gpio.h"
+
+#define delay_time 25
+
+uint8_t inputDebounce(uint8_t pin, uint8_t trigger);
+
+
+
+
+#endif	/* DEBOUNCE_H */

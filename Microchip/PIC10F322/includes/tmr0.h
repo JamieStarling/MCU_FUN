@@ -1,0 +1,52 @@
+/*
+ * File:  tmr0.h
+ * Author: Jamie Starling - JamieStarling.com 
+ *
+ * Created on:  September 6, 2019, 4:45 PM
+ * 
+ *
+
+THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+ */
+
+#ifndef TRM0_H
+#define	TRM0_H
+
+#include <xc.h>
+#include <stdint.h>
+#include "10F322_deviceconfig.h"
+
+#define TRM0_MODE_TIMER 0
+#define TRM0_MODE_COUNTER 1
+#define TRM0_EDGE_LOW_HIGH 0
+#define TRM0_EDGE_HIGH_LOW 1
+#define TRM0_PRESCALE_0   0xff
+#define TRM0_PRESCALE_2   0b00000000
+#define TRM0_PRESCALE_4   0b00000001
+#define TRM0_PRESCALE_8   0b00000010
+#define TRM0_PRESCALE_16  0b00000011
+#define TRM0_PRESCALE_32  0b00000100
+#define TRM0_PRESCALE_64  0b00000101
+#define TRM0_PRESCALE_128 0b00000110
+#define TRM0_PRESCALE_256 0b00000111
+#define TRM0_INTERRUPT_ENABLE 1
+#define TRM0_INTERRUPT_DISABLED 0
+
+
+
+
+void enableTMR0(uint8_t set_mode,uint8_t set_prescale,uint8_t edge_select,uint8_t enable_interrupt);
+void tmr0_Disable_Interrupt();
+void tmr0_Enable_Interrupt();
+void tmr0_Clear_Interrupt_Flag();
+uint8_t tmr0_Check_Interrupt_Flag();
+void tmr0_Clear_Count();
+
+#endif	/* TRM0_H */

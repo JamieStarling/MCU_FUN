@@ -1,0 +1,43 @@
+/*
+ * File:  nco.h
+ * Author: Jamie Starling - JamieStarling.com 
+ *
+ * Created on:  08/16/2020
+ * 
+ *
+
+THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+ */
+
+#ifndef NCO_H
+#define	NCO_H
+
+#include <xc.h>
+#include <stdint.h>
+#include "10F322_deviceconfig.h"
+
+#define NCO_CLOCK_SOURCE_HFINTOSC   0b00000000
+#define NCO_CLOCK_SOURCE_FOSC       0b00000001
+#define NCO_CLOCK_SOURCE_LC1OUT     0b00000010
+#define NCO_CLOCK_SOURCE_NCO1CLK    0b00000011
+#define NCO_FREQUNCY_MODE_FIXED     0
+#define NCO_FREQUNCY_MODE_PULSE     1
+
+
+
+void setupNCO1(uint8_t ClockSource, uint16_t IncrementValue,uint8_t FreqMode);
+void setNC01IncrementValue (uint16_t IncrementValue);
+void enableNCO1(void);
+void disableNCO1(void);
+void enableNCO1Output(void);
+void disableNCO1Output(void);
+
+
+#endif	/* GPIO_H */

@@ -5,16 +5,14 @@
  * Created on:  September 6, 2019, 4:46 PM
  * 
  * Copyright 2018 - 2019 Jamie Starling
-
-
-THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
-
+ * 
+ * THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
  */
 
 
@@ -109,7 +107,7 @@ void digitalWrite (uint8_t pin, uint8_t value)
 
 
 /*Reads the current input value of a pin - returns value*/
-uint8_t digitalRead (uint8_t pin)
+bool digitalRead (uint8_t pin)
 {
      //var that holds the registers of the Port Read and PIN BitMask.
    uint8_t *regPortRead_ptr, pinBitMask;
@@ -157,3 +155,20 @@ uint8_t enableWPUA (int8_t pin)
         return 0xFF;	
 	}	
 }	
+
+/*Toggles a given GPIO pin*/
+void digitalToggle (uint8_t pin)
+{
+    //var that holds the registers of the Port Write and PIN BitMask.
+   uint8_t *regPortWrite_ptr, pinBitMask;
+    
+   //Get the BitMask of the PIN    
+   pinBitMask = PIN_BIT_MASK_PGM[pin]; 
+   
+   //Get the Port Write Register
+   regPortWrite_ptr = (uint8_t*) PIN_TO_PORT_WRITE_REGISTER_PGM[pin];
+   
+   //Flip the Bit with XOR
+    *regPortWrite_ptr ^= pinBitMask;   
+    
+}

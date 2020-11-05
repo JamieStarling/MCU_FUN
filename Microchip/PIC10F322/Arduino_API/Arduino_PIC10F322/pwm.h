@@ -1,8 +1,9 @@
 /* 
- * File:   delays.h
+ * File:   pwm.h
  * Author: Jamie Starling - JamieStarling.com 
  * Comments:
  * Revision history: 
+ * 
  * 
  * THE SOFTWARE IS PROVIDED ?AS IS?, WITHOUT WARRANTY OF ANY KIND,
  * EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES
@@ -13,18 +14,28 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-
-#ifndef DELAYS_H
-#define	DELAYS_H
+ 
+#ifndef PWM_H
+#define	PWM_H
 
 #include "arduino.h"
 
 
-void init_trm0(void);
-void timer_irq(void);
-unsigned long millis();
-void delay(unsigned long ms);
+const uint16_t PIN_TO_PWM_DUTY_LOW_REGISTER_PGM[] =
+{
+	 (uint16_t) &PWM1DCL,
+	 (uint16_t) &PWM2DCL,	
+};
+
+const uint16_t PIN_TO_PWM_DUTY_HIGH_REGISTER_PGM[] =
+{
+	 (uint16_t) &PWM1DCH,
+	 (uint16_t) &PWM2DCH,	
+};
 
 
-#endif	/* DELAYS_H */
+void analogWrite(int8_t pin , int8_t pwmvalue);
+void setPWMDutyCycle (uint8_t pin, uint8_t duty);
+
+#endif	/* PWM_H */
 
